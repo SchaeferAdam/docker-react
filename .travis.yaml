@@ -1,0 +1,9 @@
+sudo: required
+servieces: 
+  - docker
+
+before_install:
+  - docker build -t szajbert/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true szajbert/docker-react npm run test
